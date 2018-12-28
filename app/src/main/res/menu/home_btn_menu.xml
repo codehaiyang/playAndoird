@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/item_home"
+        android:title="首页"
+        android:icon="@mipmap/ic_launcher">
+    </item>
+
+    <item
+        android:id="@+id/item_hierarchy"
+        android:title="体系"
+        android:icon="@mipmap/ic_launcher">
+    </item>
+
+    <item
+        android:id="@+id/time_wechat"
+        android:title="公众号"
+        android:icon="@mipmap/ic_launcher">
+    </item>
+
+    <item
+        android:id="@+id/item_project"
+        android:title="项目"
+        android:icon="@mipmap/ic_launcher">
+    </item>
+
+    <item
+        android:id="@+id/item_mine"
+        android:title="我的"
+        android:icon="@mipmap/ic_launcher">
+    </item>
+
+</menu>
