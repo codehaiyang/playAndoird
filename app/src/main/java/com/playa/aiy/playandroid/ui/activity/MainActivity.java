@@ -1,13 +1,25 @@
 package com.playa.aiy.playandroid.ui.activity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
+import android.widget.FrameLayout;
 
 import com.playa.aiy.playandroid.R;
 import com.playa.aiy.playandroid.base.BaseActivity;
-import com.playa.aiy.playandroid.base.view.BaseView;
 
+import butterknife.BindView;
+
+/**
+ *
+ */
 public class MainActivity extends BaseActivity {
+
+    @BindView(R.id.fl_content)
+    FrameLayout flContent;
+    @BindView(R.id.fbtn_up)
+    FloatingActionButton fbtnUp;
+    @BindView(R.id.btn_ntv)
+    BottomNavigationView btnNtv;
 
 
     @Override
