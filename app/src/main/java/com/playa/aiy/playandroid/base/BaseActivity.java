@@ -9,6 +9,9 @@ import com.playa.aiy.playandroid.base.view.BaseView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+/**
+ * @author aiy
+ */
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {
 
     private Unbinder mUnbinder;

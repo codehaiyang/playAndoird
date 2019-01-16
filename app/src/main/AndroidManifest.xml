@@ -3,6 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.playa.aiy.playandroid">
 
+    <!-- 支付宝支付 -->
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,7 +32,8 @@
 
 
         <activity android:name=".ui.activity.MainActivity"></activity>
-        <activity android:name=".base.BaseActivity" />
+
+        <activity android:name=".ui.activity.PayDemoActivity"></activity>
 
     </application>
 
