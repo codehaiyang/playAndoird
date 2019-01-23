@@ -1,6 +1,7 @@
 package com.playa.aiy.playandroid.ui.fragment;
 
 import android.app.Activity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -49,6 +50,8 @@ public class HomeFragment extends BaseFragment {
 
     protected Activity mActivity;
 
+    LinearLayoutManager mLinearLayoutManager;
+
     private Banner banner;
 
     public static HomeFragment getInstance(){
@@ -57,11 +60,7 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-//        View bannerView = LayoutInflater.from(mActivity).inflate(R.layout.banner_layout, null);
-//        banner = bannerView.findViewById(R.id.banner);
-
-
-
+        rvList.setLayoutManager(mLinearLayoutManager);
     }
 
     @Override

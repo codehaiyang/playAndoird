@@ -8,13 +8,13 @@
     tools:context=".ui.activity.MainActivity">
 
     <FrameLayout
-        android:id="@+id/fl_content"
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </FrameLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fbtn_up"
+        android:id="@+id/float_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
@@ -23,10 +23,11 @@
         android:src="@mipmap/ic_main_missile"/>
 
     <android.support.design.widget.BottomNavigationView
-        android:id="@+id/btn_ntv"
-        android:layout_width="wrap_content"
+        android:id="@+id/navigation_buttom"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        app:layout_behavior="@string/bottom_bervaior"
         app:menu="@menu/home_btn_menu">
 
     </android.support.design.widget.BottomNavigationView>

@@ -3,31 +3,31 @@
 
     <item
         android:id="@+id/item_home"
-        android:title="首页"
+        android:title="@string/title_home"
         android:icon="@mipmap/ic_main_home">
     </item>
 
     <item
         android:id="@+id/item_hierarchy"
-        android:title="体系"
+        android:title="@string/title_system"
         android:icon="@mipmap/ic_main_hierarchy">
     </item>
 
     <item
         android:id="@+id/time_wechat"
-        android:title="公众号"
+        android:title="@string/title_wx"
         android:icon="@mipmap/ic_main_weixin">
     </item>
 
     <item
         android:id="@+id/item_project"
-        android:title="项目"
+        android:title="@string/title_demo"
         android:icon="@mipmap/ic_main_project">
     </item>
 
     <item
         android:id="@+id/item_mine"
-        android:title="我的"
+        android:title="@string/title_mine"
         android:icon="@mipmap/ic_main_mine">
     </item>
 
