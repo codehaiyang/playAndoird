@@ -1,5 +1,7 @@
 package com.playa.aiy.playandroid.base;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.playa.aiy.playandroid.MyApplication;
 import com.playa.aiy.playandroid.base.view.BaseView;
 
 import butterknife.ButterKnife;
@@ -19,33 +22,37 @@ import butterknife.Unbinder;
  */
 public abstract class BaseFragment extends Fragment implements BaseView {
 
-    Unbinder mUnbinder;
+    protected Activity activity;
+    protected MyApplication application;
+    protected MyApplication context;
+    private Unbinder mBind;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(getLayoutId(), container, false);
-        mUnbinder = ButterKnife.bind(this, view);
-        initView();
-        return view;
-    }
-
-    protected abstract void initView();
-
-    protected abstract int getLayoutId();
-
-    @Override
-    public void showErrorView() {
-
+        return inflater.inflate(getLayoutResId(),container,false);
     }
 
     @Override
-    public void showErrorMsg() {
-
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        activity = getActivity();
+        context = MyApplication.getInstance();
+        mBind = ButterKnife.bind(this,view);
+        initUi();
+        initData();
     }
 
     @Override
-    public void reLoad() {
-
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        activity = (Activity) context;
     }
+
+    protected void initData() {
+    }
+
+    protected void initUi(){}
+
+    protected abstract int getLayoutResId();
 }

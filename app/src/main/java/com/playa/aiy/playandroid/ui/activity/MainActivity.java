@@ -15,6 +15,8 @@ import com.playa.aiy.playandroid.base.BaseActivity;
 import com.playa.aiy.playandroid.contract.MainContract;
 import com.playa.aiy.playandroid.ui.fragment.HomeFragment;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 
 /**
@@ -24,10 +26,17 @@ import butterknife.BindView;
 public class MainActivity extends BaseActivity{
 
     private static final String TAG = "MainActivity";
+    private ArrayList<Fragment> fragmentList;
 
 
     @Override
     protected void initData() {
+        initFragment();
+
+    }
+
+    private void initFragment() {
+        fragmentList = new ArrayList<>();
 
     }
 

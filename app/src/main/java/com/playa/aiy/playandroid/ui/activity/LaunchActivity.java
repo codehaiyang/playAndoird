@@ -53,7 +53,7 @@ public class LaunchActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
+        Glide.with(context).load(R.mipmap.splash).into(mIvLogn);
     }
 
     @Override

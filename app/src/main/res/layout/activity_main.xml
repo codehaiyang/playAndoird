@@ -27,7 +27,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:layout_behavior="@string/bottom_bervaior"
         app:menu="@menu/home_btn_menu">
 
     </android.support.design.widget.BottomNavigationView>
