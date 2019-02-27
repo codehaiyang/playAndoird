@@ -55,4 +55,9 @@ public abstract class BaseFragment extends Fragment implements BaseView {
     protected void initUi(){}
 
     protected abstract int getLayoutResId();
+
+    @Override
+    public void showLoading() {
+
+    }
 }
