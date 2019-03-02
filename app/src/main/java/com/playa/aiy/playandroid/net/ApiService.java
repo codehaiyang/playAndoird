@@ -1,7 +1,10 @@
 package com.playa.aiy.playandroid.net;
 
+import com.playa.aiy.playandroid.data.BenarBean;
 import com.playa.aiy.playandroid.data.HomePageArticleBean;
 import com.playa.aiy.playandroid.net.response.BaseResp;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -19,5 +22,12 @@ public interface ApiService {
      */
     @GET("article/list/{page}/json")
     Observable<BaseResp<HomePageArticleBean>> getArticleList(@Path("page") int num);
+
+    /**
+     * banner数据
+     * @return
+     */
+    @GET("banner/json")
+    Observable<BaseResp<List<BenarBean>>> getBannerList();
 
 }

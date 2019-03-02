@@ -4,6 +4,7 @@ package com.playa.aiy.playandroid.ui.fragment;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -11,6 +12,7 @@ import com.playa.aiy.playandroid.R;
 import com.playa.aiy.playandroid.adapter.HomePageAdapter;
 import com.playa.aiy.playandroid.base.BaseFragment;
 import com.playa.aiy.playandroid.contract.HomeContract;
+import com.playa.aiy.playandroid.data.BenarBean;
 import com.playa.aiy.playandroid.data.HomePageArticleBean;
 import com.playa.aiy.playandroid.presenter.HomePagePresenter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -42,6 +44,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     private HomePageAdapter mAdapter;
 
     private List<HomePageArticleBean.DatasBean> articleList;
+    private List<String> linkList;
+    private List<String> imageList;
+    private List<String> titleList;
 
     @Override
     protected int getLayoutResId() {
@@ -52,8 +57,10 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     protected void initData() {
         setRefresh();
         articleList = new ArrayList<>();
+        presenter = new HomePagePresenter(this);
         presenter.getHomepageDataList(0);
         mAdapter = new HomePageAdapter(R.layout.item_homepage, articleList);
+        mAdapter.addHeaderView(bannerView);
         rv.setAdapter(mAdapter);
     }
 
@@ -66,8 +73,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         //初始化轮播图
         bannerView = (LinearLayout) getLayoutInflater().inflate(R.layout.view_banner, null);
         banner = bannerView.findViewById(R.id.banner);
-        banner.removeView(banner);
-        banner.addView(banner);
+        bannerView.removeView(banner);
+        bannerView.addView(banner);
     }
 
     /**
@@ -92,6 +99,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     @Override
     public void getHomePageListOk(HomePageArticleBean data, boolean isRefresh) {
+        Log.d(TAG, "getHomePageListOk: " + data.toString());
         //showNormal();
         if(isRefresh){
             articleList = data.getDatas();
@@ -104,6 +112,24 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     @Override
     public void getHomeListErr(String info) {
+        Log.d(TAG, "getHomeListErr: " + info);
+    }
 
+    @Override
+    public void getBannerListOk(List<BenarBean> benarBean) {
+        Log.d(TAG, "getBannerListOk: " + benarBean.toString());
+        imageList.clear();
+        titleList.clear();
+        linkList.clear();
+        for (BenarBean benar:benarBean) {
+            imageList.add(benar.getImagePath());
+            titleList.add(benar.getTitle());
+            linkList.add(benar.getUrl());
+        }
+    }
+
+    @Override
+    public void getBannerListErr(String info) {
+        Log.d(TAG, "getBannerListErr: " + info);
     }
 }

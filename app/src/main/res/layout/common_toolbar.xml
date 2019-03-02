@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_common"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorAccent">
-
-    <RelativeLayout
-        android:id="@+id/rl_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="首页"/>
-
-    </RelativeLayout>
+    android:layout_height="50dp"
+    app:titleTextColor="@color/white_255"
+    android:background="@color/colorAccent"
+    app:layout_scrollFlags="scroll|enterAlways">
 
 </android.support.v7.widget.Toolbar>

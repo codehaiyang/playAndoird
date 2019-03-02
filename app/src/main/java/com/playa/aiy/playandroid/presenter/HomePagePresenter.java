@@ -2,11 +2,15 @@ package com.playa.aiy.playandroid.presenter;
 
 import com.playa.aiy.playandroid.base.BasePresenter;
 import com.playa.aiy.playandroid.contract.HomeContract;
+import com.playa.aiy.playandroid.data.BenarBean;
 import com.playa.aiy.playandroid.data.HomePageArticleBean;
 import com.playa.aiy.playandroid.net.ApiService;
 import com.playa.aiy.playandroid.net.ApiStore;
 import com.playa.aiy.playandroid.net.response.BaseResp;
 import com.playa.aiy.playandroid.utils.ConstantUtil;
+
+import java.util.List;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -19,6 +23,10 @@ public class HomePagePresenter extends BasePresenter<HomeContract.View> implemen
     private HomeContract.View view;
     private boolean isRefresh = true;
     private int currentPage;
+
+    public HomePagePresenter(HomeContract.View view) {
+        this.view = view;
+    }
 
     @Override
     public void autoRefresh() {
@@ -63,5 +71,42 @@ public class HomePagePresenter extends BasePresenter<HomeContract.View> implemen
                     }
                 });
 
+    }
+
+
+    /**
+     * 获取banner信息
+     */
+    @Override
+    public void getBanner() {
+        ApiStore.createApi(ApiService.class)
+                .getBannerList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<BaseResp<List<BenarBean>>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(BaseResp<List<BenarBean>> listBaseResp) {
+                        if (listBaseResp.getErrorCode() == ConstantUtil.REQUEST_ERROR){
+                            view.getBannerListErr(listBaseResp.getErrorMsg());
+                        }else if(listBaseResp.getErrorCode() == ConstantUtil.REQUEST_SUCCESS){
+                            view.getBannerListOk(listBaseResp.getData());
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }
