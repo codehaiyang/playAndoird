@@ -28,6 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity{
         activity = this;
         initView();
         initData();
+        initToolBar();
     }
 
     /**

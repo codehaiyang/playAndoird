@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import com.playa.aiy.playandroid.R;
 import com.playa.aiy.playandroid.base.BaseActivity;
 import com.playa.aiy.playandroid.ui.fragment.HomeFragment;
+import com.playa.aiy.playandroid.ui.fragment.SystemFragment;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -36,6 +38,7 @@ public class MainActivity extends BaseActivity{
     private void initFragment() {
         fragmentList = new ArrayList<>();
         fragmentList.add(new HomeFragment());
+        fragmentList.add(new SystemFragment());
     }
 
     /**

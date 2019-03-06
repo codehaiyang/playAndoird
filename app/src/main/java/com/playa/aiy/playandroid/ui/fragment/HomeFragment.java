@@ -15,11 +15,14 @@ import com.playa.aiy.playandroid.contract.HomeContract;
 import com.playa.aiy.playandroid.data.BenarBean;
 import com.playa.aiy.playandroid.data.HomePageArticleBean;
 import com.playa.aiy.playandroid.presenter.HomePagePresenter;
+import com.playa.aiy.playandroid.utils.GlideImageLoader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,8 +60,12 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     protected void initData() {
         setRefresh();
         articleList = new ArrayList<>();
+        imageList = new ArrayList<>();
+        titleList = new ArrayList<>();
+        linkList = new ArrayList<>();
         presenter = new HomePagePresenter(this);
         presenter.getHomepageDataList(0);
+        presenter.getBanner();
         mAdapter = new HomePageAdapter(R.layout.item_homepage, articleList);
         mAdapter.addHeaderView(bannerView);
         rv.setAdapter(mAdapter);
@@ -126,6 +133,17 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
             titleList.add(benar.getTitle());
             linkList.add(benar.getUrl());
         }
+        //设置banner加载轮播图配置
+        banner.setImageLoader(new GlideImageLoader())
+                .setBannerStyle(BannerConfig.NUM_INDICATOR_TITLE)
+                .setImages(imageList)
+                .setBannerAnimation(Transformer.Accordion)
+                .setBannerTitles(titleList)
+                .isAutoPlay(true)
+                .setDelayTime(5000)
+                .setIndicatorGravity(BannerConfig.RIGHT)
+                .start();
+
     }
 
     @Override
