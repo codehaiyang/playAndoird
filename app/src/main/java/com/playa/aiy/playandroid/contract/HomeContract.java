@@ -7,6 +7,9 @@ import com.playa.aiy.playandroid.data.HomePageArticleBean;
 
 import java.util.List;
 
+/**
+ * 首页约束
+ */
 public class HomeContract {
 
     public interface View extends BaseView{

@@ -2,6 +2,7 @@ package com.playa.aiy.playandroid.net;
 
 import com.playa.aiy.playandroid.data.BenarBean;
 import com.playa.aiy.playandroid.data.HomePageArticleBean;
+import com.playa.aiy.playandroid.data.SystemBean;
 import com.playa.aiy.playandroid.net.response.BaseResp;
 
 import java.util.List;
@@ -29,5 +30,12 @@ public interface ApiService {
      */
     @GET("banner/json")
     Observable<BaseResp<List<BenarBean>>> getBannerList();
+
+    /**
+     * 体系数据
+     * @return
+     */
+    @GET("tree/json")
+    Observable<BaseResp<List<SystemBean>>> getSystemList();
 
 }

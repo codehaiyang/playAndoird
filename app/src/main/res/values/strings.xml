@@ -65,7 +65,7 @@
     <string name="cancel_collect_success">取消收藏成功</string>
     <string name="cancel_collect_fail">取消收藏失败</string>
     <string name="float_button">cn.white.ymc.wanandroidmaster.util.behavior.FabScrollBehavior</string>
-    <string name="bottom_bervaior">cn.white.ymc.wanandroidmaster.util.behavior.BottomNavigationBehavior</string>
+    <string name="bottom_bervaior">com.playa.aiy.playandroid.utils.behavior.BottomNavigationBehavior</string>
 
     <!-- 听写 -->
     <string name="app_id">5c7ddc7a</string>

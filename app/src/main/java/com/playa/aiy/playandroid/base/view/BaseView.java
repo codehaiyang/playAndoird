@@ -5,8 +5,6 @@ package com.playa.aiy.playandroid.base.view;
  */
 public interface BaseView {
 
-
     void showLoading();
-
 
 }

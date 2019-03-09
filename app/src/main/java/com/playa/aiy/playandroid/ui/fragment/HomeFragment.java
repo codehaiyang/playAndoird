@@ -30,6 +30,7 @@ import java.util.List;
 import butterknife.BindView;
 
 /**
+ * 首页fragment
  * @author aiy
  */
 public class HomeFragment extends BaseFragment implements HomeContract.View {
@@ -88,19 +89,13 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
      * 设置SmartRefreshLayout刷新加载
      */
     private void setRefresh() {
-        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                presenter.autoRefresh();
-                refreshLayout.finishRefresh(1000);
-            }
+        refreshLayout.setOnRefreshListener(refreshLayout -> {
+            presenter.autoRefresh();
+            refreshLayout.finishRefresh(1000);
         });
-        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
-            @Override
-            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                presenter.loadMore();
-                refreshLayout.finishLoadMore(1000);
-            }
+        refreshLayout.setOnLoadMoreListener(refreshLayout -> {
+            presenter.loadMore();
+            refreshLayout.finishLoadMore(1000);
         });
     }
 

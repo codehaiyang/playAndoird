@@ -20,7 +20,8 @@
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
     </FrameLayout>
 
     <android.support.design.widget.FloatingActionButton
@@ -36,8 +37,10 @@
         android:id="@+id/navigation_buttom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white_255"
         android:layout_gravity="bottom"
-        app:menu="@menu/home_btn_menu">
+        app:menu="@menu/home_btn_menu"
+        app:layout_behavior="@string/bottom_bervaior">
 
     </android.support.design.widget.BottomNavigationView>
 
