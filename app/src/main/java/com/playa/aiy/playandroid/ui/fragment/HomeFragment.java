@@ -1,13 +1,9 @@
 package com.playa.aiy.playandroid.ui.fragment;
 
-
-import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 import android.widget.LinearLayout;
-
 import com.playa.aiy.playandroid.R;
 import com.playa.aiy.playandroid.adapter.HomePageAdapter;
 import com.playa.aiy.playandroid.base.BaseFragment;
@@ -17,16 +13,11 @@ import com.playa.aiy.playandroid.data.HomePageArticleBean;
 import com.playa.aiy.playandroid.presenter.HomePagePresenter;
 import com.playa.aiy.playandroid.utils.GlideImageLoader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 
 /**

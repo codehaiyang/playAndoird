@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-
 import com.playa.aiy.playandroid.R;
 import com.playa.aiy.playandroid.base.BaseActivity;
 import com.playa.aiy.playandroid.ui.fragment.HomeFragment;

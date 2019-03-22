@@ -3,7 +3,7 @@ package com.playa.aiy.playandroid.contract;
 import com.playa.aiy.playandroid.base.view.BaseView;
 import com.playa.aiy.playandroid.presenter.IPresenter;
 
-public interface MainContract {
+public class MainContract {
 
     interface View extends BaseView{
 

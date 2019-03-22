@@ -3,8 +3,8 @@ package com.playa.aiy.playandroid.ui.fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-
 import com.playa.aiy.playandroid.R;
+import com.playa.aiy.playandroid.adapter.SystemPageAdapter;
 import com.playa.aiy.playandroid.base.BaseFragment;
 import com.playa.aiy.playandroid.contract.SystemContract;
 import com.playa.aiy.playandroid.data.SystemBean;
@@ -13,15 +13,13 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
-
-import static com.chad.library.adapter.base.listener.SimpleClickListener.TAG;
-
 /**
  * 体系fragment
  */
 public class SystemFragment extends BaseFragment implements SystemContract.View {
+
+    private static final String TAG = "SystemFragment";
 
     @BindView(R.id.srl_system)
     SmartRefreshLayout mSrfSystem;
@@ -30,6 +28,7 @@ public class SystemFragment extends BaseFragment implements SystemContract.View 
     private SystemPagePresenter presenter;
 
     private List<SystemBean> mSystemBeanList = new ArrayList<>();
+    private SystemPageAdapter mSystemPageAdapter;
 
     @Override
     protected void initUi() {
@@ -43,6 +42,8 @@ public class SystemFragment extends BaseFragment implements SystemContract.View 
     protected void initData() {
         presenter = new SystemPagePresenter(this);
         presenter.getSystemList();
+        mSystemPageAdapter = new SystemPageAdapter(R.layout.item_system,mSystemBeanList);
+        mRvSystem.setAdapter(mSystemPageAdapter);
     }
 
     /**
@@ -65,6 +66,8 @@ public class SystemFragment extends BaseFragment implements SystemContract.View 
     @Override
     public void getSystemListOk(List<SystemBean> systemBeanList) {
         mSystemBeanList = systemBeanList;
+        // 刷新adapter数据
+        mSystemPageAdapter.replaceData(mSystemBeanList);
     }
 
     /**

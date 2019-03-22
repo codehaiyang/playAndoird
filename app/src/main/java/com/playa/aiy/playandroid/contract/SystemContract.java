@@ -6,9 +6,9 @@ import com.playa.aiy.playandroid.data.SystemBean;
 
 import java.util.List;
 
-public interface SystemContract {
+public class SystemContract {
 
-    interface View extends BaseView{
+    public interface View extends BaseView{
 
         void getSystemListOk(List<SystemBean> systemBeanList);
 
@@ -16,7 +16,7 @@ public interface SystemContract {
 
     }
 
-    interface Pre extends BasePre<View>{
+    public interface Pre extends BasePre<View>{
         void getSystemList();
     }
 }
